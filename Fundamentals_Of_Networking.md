@@ -143,7 +143,27 @@ The OSI model has 7 layers, each has its function and services and interact with
 |Layer 2|Data Link|
 |Layer 1|Physical|
 
+#### TCP/IP Model
+|Layer|Function|
+|----|-------|
+|Application|Represent data to users, perform encoding and dialog control. Users typically interact with application program to get work done|
+|Transport|Controls flow of information between application program running the *client* and application program running the *server*|
+|Internet|Determine best path for network|
+|Network Access|Controls hardware devices and media making up the network|
+---
 
+#### OSI & TCP/IP Model Comparison
+
+![alt text](image.png)
+
+**Similarities:**
+1. The OSI Layer 3 (network layer) maps directly to the TCP/IP Internet layer. Both layers are used to describe protocols that address and route messages through an internetwork.
+2. The OSI Layer 4 (transport layer) maps dierectly to the TCP/IP Tranport layer. Both layers describe general services and functions that provide ordered and reliable delivery of data between sources and destination hosts.
+
+**Differences**
+1. OSI model has 7 layers, TCP/IP model has 4 layers
+2. OSI seperates layers 1 and 2 for specific roles. The Data Link layer defines procedures to access the medium while the Physical layer specifies the hardware-level communication. TCP/IP does not specify.
+3. The TCP/IP model application layer includes protocols to provide specific functionality for a variety of end user applications. The OSI model layers 5,6 and 7 provide reference for application software developers and vendors to produce products operating on the network.
 
 
 
