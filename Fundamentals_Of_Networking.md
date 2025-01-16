@@ -106,7 +106,7 @@ The process of a web server transmitting data to a web client is as follows:
 
 (IP Header) (TCP Header) (HTTP Header) (Data) [**IP Packet**]
 
-6) At the Network Access Layer, the Eternet protocol adds an Ethernet header and Ethernet trailer to the IP Packet forming the *Ethernet Frame*. This Ethernet Frame which consists of a series of binary bits is transmitted across the internetwork to the web client. 
+6) At the Network Access Layer, the Ethernet protocol adds an Ethernet header and Ethernet trailer to the IP Packet forming the *Ethernet Frame*. This Ethernet Frame which consists of a series of binary bits is transmitted across the internetwork to the web client. 
 
 (Ethernet Header) (IP Header) (TCP Header) (HTTP Header) (Data) (Ethernet Trailer) [**Ethernet Frame**]
 
@@ -165,8 +165,33 @@ The OSI model has 7 layers, each has its function and services and interact with
 2. OSI seperates layers 1 and 2 for specific roles. The Data Link layer defines procedures to access the medium while the Physical layer specifies the hardware-level communication. TCP/IP does not specify.
 3. The TCP/IP model application layer includes protocols to provide specific functionality for a variety of end user applications. The OSI model layers 5,6 and 7 provide reference for application software developers and vendors to produce products operating on the network.
 
+## Data Transfer
 
+### Data Encapsulation
+In order for data to be transmitted successfully across the network, it needs to be *encapsulated with the sufficient addressing and control information* for it to move from source to destination. The type of information will depend on whether the destination is in a local or remote network.
 
+### Message Segmentation
+Message can be delivered more efficiently from source to destination by dividing it into smaller manageable pieces (segmentation) Each segment goes through the same process to reach the destination. When all the pieces arrive at the destination, it is reassembled into the original message.
+
+### Addressing
+For successful data transmission, data must be encapsulated with the correct source and destination addresses.
+
+There is a hardware address in every Network Interface Card (NIC). It is a unique Media Access Control (MAC) address which is 48 bits/6 bytes in length.
+
+There are also 2 types of addresses with different purposes needed for transmission of data over a network.
+
+1. **Network / Layer 3 Addresses**: or *end-to-end* addresses, the **network layer** source and destination addresses are responsible for delivering packet from the original source to the end destination, either on the same link or remote network.
+
+2. **Data Link / Layer 2 Addresses**: or *point-to-point* addresses, the **data link layer** source and destination addresses are responsible for delivering data link frame from one NIC to another NIC on the same network.
+
+#### Data Link Addressing (Same Network Vs. Different Network)
+For devices on the **same network**;
+Source Address - data link address of the device initiating transmission
+Destination Address - data link address of target device destined to receive transmission
+
+This works the same way on both L2 addresses and L3 addresses
+
+For devices on **different network**;
 
 
 
