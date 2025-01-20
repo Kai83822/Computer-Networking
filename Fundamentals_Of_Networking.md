@@ -176,18 +176,36 @@ Message can be delivered more efficiently from source to destination by dividing
 ### Addressing
 For successful data transmission, data must be encapsulated with the correct source and destination addresses.
 
-There is a hardware address in every Network Interface Card (NIC). It is a unique Media Access Control (MAC) address which is 48 bits/6 bytes in length.
-
 There are also 2 types of addresses with different purposes needed for transmission of data over a network.
 
-1. **Network / Layer 3 Addresses**: or *end-to-end* addresses, the **network layer** source and destination addresses are responsible for delivering packet from the original source to the end destination, either on the same link or remote network.
+1. **Ethernet MAC Addresses**: found in every NIC with a unique Media Access Control (MAC) address in 48bits/6bytes length. It is expressed in 12 hexadecimal digits with - notation and is referred as the physical/harware address of the NIC.
 
+2. **IP Addresses**: any device connected to the network has an IP address in format: 32bits/4bytes with dotted notation e.g 192.168.36.21
+
+There are 2 schemes for transmitting data over the network.
+
+1. **Network / Layer 3 Addresses**: or *end-to-end* addresses, the **network layer** source and destination addresses are responsible for delivering packet from the original source to the end destination, either on the same link or remote network.
+e.g IP Addressing
 2. **Data Link / Layer 2 Addresses**: or *point-to-point* addresses, the **data link layer** source and destination addresses are responsible for delivering data link frame from one NIC to another NIC on the same network.
+e.g MAC Addressing
+
+Transport Layer - [Data] ---> segmented <br>*down a level*
+
+Network Layer - [Network header][Data] ---> packet <br>L3 Addresses Source and Destination encapsulated in Network Header <br>*down a level*
+
+Data Link Layer - [Data link header][Network header][Data][Data link trailer] ---> frame <br> L2 Addresses Source and Destination encapsulated in Data link header
+
+![alt text](image-1.png)
+
+L2 addressing hops point-to-point (or network to another network, each point to point between each network is called a network segment) from start to end terminal
+
+L3 addressing travels end-to-end from start to end terminal
+
+When the frame traverses across networks, *L2 Addresses* change ptp across different networks, while L3 addresses do NOT change the entire path. Remember that L2 and L3 addresses are encapsulated in the frame.
 
 #### Data Link Addressing (Same Network Vs. Different Network)
 For devices on the **same network**;
-Source Address - data link address of the device initiating transmission
-Destination Address - data link address of target device destined to receive transmission
+PC1 and PC2 are in the same network. To send data from PC1 to PC2, 
 
 This works the same way on both L2 addresses and L3 addresses
 
